@@ -3,6 +3,7 @@ import { FormContact } from "./FormContact/FormContact";
 import { ContactList } from "./ContactList/ContactList";
 import { nanoid } from 'nanoid';
 import { SearchFilter } from "./SearchFilter/SearchFilter";
+import { Container, MainTitle, Title } from "./App.styled";
 
 
 export class App extends Component {
@@ -46,14 +47,14 @@ export class App extends Component {
   render() {
     const visibleItems = this.getVisibleItems();
   return (
-    <div>
-      <h1>Phonebook</h1>
+    <Container>
+      <MainTitle>Phonebook</MainTitle>
       <FormContact onAdd={this.addContact} />
 
-      <h2>Contact List</h2>
+      <Title>Contact List</Title>
       <SearchFilter filter={this.state} onChangeFilter={this.changeFilter} />
       <ContactList onDelete={this.deleteContact} items={visibleItems} />
-    </div>
+    </Container>
   )
 }
 };
